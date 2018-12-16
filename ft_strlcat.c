@@ -6,45 +6,31 @@
 /*   By: ghdesfos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/22 22:10:22 by ghdesfos          #+#    #+#             */
-/*   Updated: 2018/11/14 22:03:10 by ghdesfos         ###   ########.fr       */
+/*   Updated: 2018/12/15 21:59:10 by ghdesfos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 size_t		ft_strlcat(char *restrict dst, \
-		const char *restrict src, size_t dstsize)
+		const char *restrict src, size_t size)
 {
-	size_t i;
-	size_t j;
-	size_t k;
+	unsigned	int i;
+	unsigned	int j;
+	unsigned	int k;
 
 	i = 0;
-	j = 0;
-	k = 0;
-	while (dst[i])
+	while (dst[i] != '\0')
 		i++;
-	while (src[j])
-		j++;
-	if (dstsize < i + 2 || dstsize < 1)
-		return (i + j);
-	while (i + k < dst_size - 1 && k < j)
+	j = 0;
+	while (src[j] != '\0' && j < size)
 	{
-		dst[i + k] = 
-		k++;
+		dst[i + j] = src[j];
+		j++;
 	}
-}
-
-
-
-
-#include <stdio.h>
-
-int main()
-{
-	char	dst[] = "0123456789";
-	char	src[] = "abc";
-
-	printf("%d", (int)ft_strlcat(dst, src, 15));
-	return (0);
+	dst[i + j] = '\0';
+	k = 0;
+	while (src[k] != '\0')
+		k++;
+	return (k + size);
 }
