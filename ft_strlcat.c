@@ -6,7 +6,7 @@
 /*   By: ghdesfos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/22 22:10:22 by ghdesfos          #+#    #+#             */
-/*   Updated: 2018/12/15 22:03:23 by ghdesfos         ###   ########.fr       */
+/*   Updated: 2018/12/15 22:06:54 by ghdesfos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 size_t		ft_strlcat(char *restrict dst, \
 		const char *restrict src, size_t size)
 {
-	unsigned	int i;
-	unsigned	int j;
-	unsigned	int k;
+	size_t i;
+	size_t j;
+	size_t k;
 
 	i = 0;
 	while (dst[i] != '\0')
