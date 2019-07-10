@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_word_length.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghdesfos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/03 18:38:18 by ghdesfos          #+#    #+#             */
-/*   Updated: 2019/06/06 13:08:07 by ghdesfos         ###   ########.fr       */
+/*   Created: 2019/06/06 16:23:22 by ghdesfos          #+#    #+#             */
+/*   Updated: 2019/06/06 23:20:02 by ghdesfos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+size_t	ft_word_length(char *str, char *sep)
 {
-	while (*s)
-	{
-		if (*s == (char)c)
-			return ((char*)s);
-		s++;
-	}
-	if ((char)c == 0)
-		return ((char*)s);
-	return (NULL);
+	size_t len;
+
+	if (!str || *str == 0)
+		return (0);
+	if (!sep || *sep == 0)
+		return (ft_strlen(str));
+	len = 0;
+	while (str[len] && !ft_strchr(sep, str[len]))
+		len++;
+	return (len);
 }

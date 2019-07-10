@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghdesfos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/24 12:44:15 by ghdesfos          #+#    #+#             */
-/*   Updated: 2018/09/24 12:55:40 by ghdesfos         ###   ########.fr       */
+/*   Created: 2019/06/03 18:37:01 by ghdesfos          #+#    #+#             */
+/*   Updated: 2019/06/05 22:37:12 by ghdesfos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,9 @@
 
 void	ft_putnbr(int n)
 {
-	if (n == -2147483648)
-	{
-		ft_putstr("-2147483648");
-		return ;
-	}
-	if (n < 0)
-	{
-		ft_putchar('-');
-		n = -n;
-	}
-	if (n > 9)
-	{
-		ft_putnbr(n / 10);
-		ft_putchar(n % 10 + '0');
-	}
-	else
-		ft_putchar(n + '0');
+	char *str;
+
+	str = ft_itoa(n);
+	ft_putstr(str);
+	free(str);
 }

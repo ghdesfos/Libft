@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghdesfos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/23 14:48:20 by ghdesfos          #+#    #+#             */
-/*   Updated: 2018/09/23 14:49:42 by ghdesfos         ###   ########.fr       */
+/*   Created: 2019/06/03 18:45:24 by ghdesfos          #+#    #+#             */
+/*   Updated: 2019/06/04 16:21:05 by ghdesfos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_tolower(int c)
+int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
 		return (c + 32);

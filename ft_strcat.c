@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghdesfos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/22 21:56:14 by ghdesfos          #+#    #+#             */
-/*   Updated: 2018/09/22 22:33:51 by ghdesfos         ###   ########.fr       */
+/*   Created: 2019/06/03 18:38:07 by ghdesfos          #+#    #+#             */
+/*   Updated: 2019/06/06 13:07:10 by ghdesfos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,9 @@
 
 char	*ft_strcat(char *restrict s1, const char *restrict s2)
 {
-	char	*str;
+	size_t s1_len;
 
-	str = s1;
-	while (*str)
-		str++;
-	while (*s2)
-	{
-		*str = *s2;
-		str++;
-		s2++;
-	}
-	*str = 0;
+	s1_len = ft_strlen(s1);
+	ft_strcpy(s1 + s1_len, s2);
 	return (s1);
 }

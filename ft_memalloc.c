@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghdesfos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/23 15:15:03 by ghdesfos          #+#    #+#             */
-/*   Updated: 2018/09/24 15:18:43 by ghdesfos         ###   ########.fr       */
+/*   Created: 2019/06/03 18:34:12 by ghdesfos          #+#    #+#             */
+/*   Updated: 2019/06/04 16:26:22 by ghdesfos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	*ft_memalloc(size_t size)
 {
-	void	*ptr;
+	void *mem;
 
-	if (!(ptr = malloc(size)))
-		return (0);
-	ft_bzero(ptr, size);
-	return (ptr);
+	if (!(mem = (void*)malloc(size)))
+		return (NULL);
+	ft_bzero(mem, size);
+	return (mem);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghdesfos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/23 16:36:57 by ghdesfos          #+#    #+#             */
-/*   Updated: 2018/09/23 16:38:11 by ghdesfos         ###   ########.fr       */
+/*   Created: 2019/06/03 18:38:30 by ghdesfos          #+#    #+#             */
+/*   Updated: 2019/06/04 16:15:34 by ghdesfos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 void	ft_strclr(char *s)
 {
-	while (*s)
-	{
-		*s = 0;
-		s++;
-	}
+	size_t len;
+
+	if (!s)
+		return ;
+	len = ft_strlen(s);
+	ft_bzero(s, len);
 }

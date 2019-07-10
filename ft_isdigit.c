@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghdesfos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/23 14:32:49 by ghdesfos          #+#    #+#             */
-/*   Updated: 2018/09/23 14:33:52 by ghdesfos         ###   ########.fr       */
+/*   Created: 2019/06/03 18:32:35 by ghdesfos          #+#    #+#             */
+/*   Updated: 2019/06/06 13:02:28 by ghdesfos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
-	return (c >= '0' && c <= '9');
+	return ((int)(c >= 48 && c <= 57));
 }

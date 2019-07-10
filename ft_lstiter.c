@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghdesfos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/26 14:33:48 by ghdesfos          #+#    #+#             */
-/*   Updated: 2018/09/26 14:39:56 by ghdesfos         ###   ########.fr       */
+/*   Created: 2019/06/03 20:03:28 by ghdesfos          #+#    #+#             */
+/*   Updated: 2019/06/04 16:10:17 by ghdesfos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
-	t_list *lstnext;
+	t_list *tmp;
 
-	if (!lst)
+	if (!lst || !f)
 		return ;
 	while (lst)
 	{
-		lstnext = lst->next;
-		f(lst);
-		lst = lstnext;
+		tmp = lst->next;
+		(*f)(lst);
+		lst = tmp;
 	}
 }

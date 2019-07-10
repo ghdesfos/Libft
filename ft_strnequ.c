@@ -5,22 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghdesfos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/23 18:07:04 by ghdesfos          #+#    #+#             */
-/*   Updated: 2018/09/24 17:38:46 by ghdesfos         ###   ########.fr       */
+/*   Created: 2019/06/03 18:43:19 by ghdesfos          #+#    #+#             */
+/*   Updated: 2019/06/05 15:18:43 by ghdesfos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strnequ(const char *s1, const char *s2, size_t n)
+int	ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	size_t i;
-
-	i = 0;
-	while (i < n && s1[i] && s1[i] == s2[i])
-		i++;
-	if (i == n || (s1[i] == s2[i] && s1[i] == 0))
+	if (!s1 && !s2)
 		return (1);
-	else
+	if (!s1 || !s2)
 		return (0);
+	if (ft_strncmp(s1, s2, n) == 0)
+		return (1);
+	return (0);
 }

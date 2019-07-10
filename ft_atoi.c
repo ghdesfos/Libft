@@ -5,31 +5,35 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghdesfos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/23 13:51:42 by ghdesfos          #+#    #+#             */
-/*   Updated: 2018/09/25 20:44:24 by ghdesfos         ###   ########.fr       */
+/*   Created: 2019/06/03 18:31:01 by ghdesfos          #+#    #+#             */
+/*   Updated: 2019/06/07 19:09:41 by ghdesfos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
-	long	n;
 	int		sign;
+	size_t	val;
 
-	sign = 1;
-	while (*str == 9 || *str == 10 || *str == 11 || \
-			*str == 12 || *str == 13 || *str == 32)
+	while (*str == ' ' || *str == '\n' || *str == '\t' \
+		|| *str == '\v' || *str == '\f' || *str == '\r')
 		str++;
+	sign = 1;
 	if (*str == '-')
 		sign = -1;
 	if (*str == '+' || *str == '-')
 		str++;
-	n = 0;
-	while (*str >= 48 && *str <= 57)
+	val = 0;
+	while (*str >= '0' && *str <= '9')
 	{
-		n = n * 10 + (*str - '0');
+		val = 10 * val + *str - '0';
+		if (sign == -1 && val > (size_t)9223372036854775807)
+			return (0);
+		if (sign == 1 && val > (size_t)9223372036854775807)
+			return (-1);
 		str++;
 	}
-	return ((int)(n * sign));
+	return ((int)(sign * val));
 }

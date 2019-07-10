@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghdesfos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/22 21:50:11 by ghdesfos          #+#    #+#             */
-/*   Updated: 2018/09/22 21:56:00 by ghdesfos         ###   ########.fr       */
+/*   Created: 2019/06/03 18:43:11 by ghdesfos          #+#    #+#             */
+/*   Updated: 2019/06/06 13:02:07 by ghdesfos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,17 @@
 
 char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
+	size_t	src_len;
 	size_t	i;
-	int		strend;
 
-	strend = 0;
-	i = 0;
-	while (i < len)
+	src_len = ft_strlen(src);
+	i = -1;
+	while (++i < len)
 	{
-		if (src[i] == 0)
-			strend = 1;
-		if (strend == 0)
+		if (i <= src_len)
 			dst[i] = src[i];
 		else
 			dst[i] = 0;
-		i++;
 	}
 	return (dst);
 }

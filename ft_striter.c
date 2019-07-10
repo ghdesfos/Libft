@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghdesfos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/23 16:38:29 by ghdesfos          #+#    #+#             */
-/*   Updated: 2018/09/23 16:54:50 by ghdesfos         ###   ########.fr       */
+/*   Created: 2019/06/03 18:41:04 by ghdesfos          #+#    #+#             */
+/*   Updated: 2019/06/04 16:16:52 by ghdesfos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	ft_striter(char *s, void (*f)(char *))
 {
-	if (f == NULL)
+	size_t i;
+
+	if (!s || !f)
 		return ;
-	while (*s)
-	{
-		f(s);
-		s++;
-	}
+	i = -1;
+	while (s[++i])
+		(*f)(s + i);
 }

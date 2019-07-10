@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghdesfos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/23 20:33:47 by ghdesfos          #+#    #+#             */
-/*   Updated: 2018/09/24 17:28:17 by ghdesfos         ###   ########.fr       */
+/*   Created: 2019/06/03 18:41:32 by ghdesfos          #+#    #+#             */
+/*   Updated: 2019/06/05 11:58:57 by ghdesfos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,19 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int		l1;
-	int		l2;
-	int		i;
 	char	*str;
+	size_t	s1_len;
+	size_t	s2_len;
 
-	l1 = 0;
-	l2 = 0;
-	while (s1[l1])
-		l1++;
-	while (s2[l2])
-		l2++;
-	if (!(str = (char*)malloc(sizeof(char) * (l1 + l2 + 1))))
-		return (0);
-	i = -1;
-	while (++i < l1)
-		str[i] = s1[i];
-	i = -1;
-	while (++i < l1 + l2)
-		str[l1 + i] = s2[i];
-	str[l1 + l2] = 0;
+	if (!s1 && !s2)
+		return (NULL);
+	if (!s1 || !s2)
+		return (ft_strdup((s1) ? s1 : s2));
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	if (!(str = (char*)malloc(sizeof(char) * (s1_len + s2_len + 1))))
+		return (NULL);
+	ft_strcpy(str, s1);
+	ft_strcat(str, s2);
 	return (str);
 }

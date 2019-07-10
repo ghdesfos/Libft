@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghdesfos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/22 22:10:22 by ghdesfos          #+#    #+#             */
-/*   Updated: 2018/12/15 22:10:19 by ghdesfos         ###   ########.fr       */
+/*   Created: 2019/06/04 16:38:01 by ghdesfos          #+#    #+#             */
+/*   Updated: 2019/06/06 13:24:28 by ghdesfos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ size_t		ft_strlcat(char *restrict dst, \
 	i = 0;
 	j = 0;
 	len_dst = ft_strlen(dst);
+	if (size == 0)
+		return (len_dst);
 	while (dst[i] != '\0' && i < size)
 		i++;
 	while (src[j] != '\0' && i < size - 1)

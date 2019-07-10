@@ -5,15 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghdesfos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/24 13:04:59 by ghdesfos          #+#    #+#             */
-/*   Updated: 2018/09/24 16:37:16 by ghdesfos         ###   ########.fr       */
+/*   Created: 2019/06/03 18:37:29 by ghdesfos          #+#    #+#             */
+/*   Updated: 2019/06/04 16:14:43 by ghdesfos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(const char *s, int fd)
+void	ft_putstr_fd(char const *s, int fd)
 {
+	if (!s)
+		return ;
 	while (*s)
 	{
 		ft_putchar_fd(*s, fd);

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghdesfos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/22 23:16:04 by ghdesfos          #+#    #+#             */
-/*   Updated: 2018/09/25 20:26:04 by ghdesfos         ###   ########.fr       */
+/*   Created: 2019/06/03 18:43:50 by ghdesfos          #+#    #+#             */
+/*   Updated: 2019/06/06 13:00:05 by ghdesfos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,17 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	const char	*add;
-	int			i;
+	char *last;
 
-	i = 0;
-	add = NULL;
-	while (s[i])
+	last = NULL;
+	while (*s)
 	{
-		if (s[i] == (char)c)
-			add = &s[i];
-		i++;
+		if (*s == (char)c)
+			last = (char*)s;
+		s++;
 	}
-	if (add != NULL)
-		return ((char*)add);
-	if (s[i] == (char)c)
-		return (&((char*)s)[i]);
-	return (NULL);
+	if ((char)c == 0)
+		return ((char*)s);
+	else
+		return (last);
 }

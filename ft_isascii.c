@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghdesfos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/23 14:37:39 by ghdesfos          #+#    #+#             */
-/*   Updated: 2018/09/23 14:39:25 by ghdesfos         ###   ########.fr       */
+/*   Created: 2019/06/03 18:32:23 by ghdesfos          #+#    #+#             */
+/*   Updated: 2019/06/06 13:04:36 by ghdesfos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isascii(int c)
+int	ft_isascii(int c)
 {
-	return (c >= 0 && c <= 127);
+	return ((int)(c >= 0 && c <= 127));
 }

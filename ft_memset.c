@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghdesfos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/22 18:53:55 by ghdesfos          #+#    #+#             */
-/*   Updated: 2018/09/22 19:10:51 by ghdesfos         ###   ########.fr       */
+/*   Created: 2019/06/03 18:36:04 by ghdesfos          #+#    #+#             */
+/*   Updated: 2019/06/06 13:05:53 by ghdesfos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 void	*ft_memset(void *b, int c, size_t len)
 {
-	size_t i;
+	unsigned char	*str;
+	size_t			i;
 
+	str = (unsigned char*)b;
 	i = 0;
 	while (i < len)
 	{
-		((char*)b)[i] = (unsigned char)c;
+		str[i] = (unsigned char)c;
 		i++;
 	}
 	return (b);

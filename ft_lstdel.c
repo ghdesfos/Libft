@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghdesfos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/26 13:09:02 by ghdesfos          #+#    #+#             */
-/*   Updated: 2018/11/14 14:41:21 by ghdesfos         ###   ########.fr       */
+/*   Created: 2019/06/03 19:05:58 by ghdesfos          #+#    #+#             */
+/*   Updated: 2019/06/05 21:27:27 by ghdesfos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,19 @@
 
 void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	t_list	*lst;
-	t_list	*nextlst;
+	t_list *tmp;
+	t_list *next;
 
-	lst = *alst;
-	while (lst != NULL)
+	if (!alst || !del)
+		return ;
+	if (!(*alst))
+		return ;
+	tmp = *alst;
+	while (tmp)
 	{
-		nextlst = lst->next;
-		del(lst->content, lst->content_size);
-		free(lst);
-		lst = nextlst;
+		next = tmp->next;
+		ft_lstdelone(&tmp, del);
+		tmp = next;
 	}
 	*alst = NULL;
 }

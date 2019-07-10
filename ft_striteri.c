@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghdesfos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/23 16:55:45 by ghdesfos          #+#    #+#             */
-/*   Updated: 2018/09/24 17:27:36 by ghdesfos         ###   ########.fr       */
+/*   Created: 2019/06/03 18:41:16 by ghdesfos          #+#    #+#             */
+/*   Updated: 2019/06/04 16:17:27 by ghdesfos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,11 @@
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	unsigned int i;
+	size_t i;
 
-	i = 0;
-	if (f == NULL)
+	if (!s || !f)
 		return ;
-	while (*s)
-	{
-		f(i, s);
-		i++;
-		s++;
-	}
+	i = -1;
+	while (s[++i])
+		(*f)((unsigned int)i, s + i);
 }

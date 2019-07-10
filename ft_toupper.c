@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghdesfos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/23 14:46:47 by ghdesfos          #+#    #+#             */
-/*   Updated: 2018/09/23 14:48:10 by ghdesfos         ###   ########.fr       */
+/*   Created: 2019/06/03 18:45:31 by ghdesfos          #+#    #+#             */
+/*   Updated: 2019/06/04 16:21:15 by ghdesfos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_toupper(int c)
+int	ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
 		return (c - 32);

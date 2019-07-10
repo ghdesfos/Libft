@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghdesfos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/26 12:54:20 by ghdesfos          #+#    #+#             */
-/*   Updated: 2018/09/26 13:08:51 by ghdesfos         ###   ########.fr       */
+/*   Created: 2019/06/03 19:04:36 by ghdesfos          #+#    #+#             */
+/*   Updated: 2019/06/05 11:45:59 by ghdesfos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,11 @@
 
 void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
 {
-	del((*alst)->content, (*alst)->content_size);
+	if (!alst || !del)
+		return ;
+	if (!(*alst))
+		return ;
+	(*del)((*alst)->content, (*alst)->content_size);
 	free(*alst);
 	*alst = NULL;
 }

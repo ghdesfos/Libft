@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_islower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghdesfos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/03 18:38:18 by ghdesfos          #+#    #+#             */
-/*   Updated: 2019/06/06 13:08:07 by ghdesfos         ###   ########.fr       */
+/*   Created: 2019/06/06 14:52:51 by ghdesfos          #+#    #+#             */
+/*   Updated: 2019/06/06 14:54:10 by ghdesfos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+int	ft_islower(int c)
 {
-	while (*s)
-	{
-		if (*s == (char)c)
-			return ((char*)s);
-		s++;
-	}
-	if ((char)c == 0)
-		return ((char*)s);
-	return (NULL);
+	return ((int)(c >= 97 && c <= 122));
 }

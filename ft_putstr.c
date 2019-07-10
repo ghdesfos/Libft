@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghdesfos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/24 12:39:37 by ghdesfos          #+#    #+#             */
-/*   Updated: 2018/09/24 12:54:42 by ghdesfos         ###   ########.fr       */
+/*   Created: 2019/06/03 18:37:22 by ghdesfos          #+#    #+#             */
+/*   Updated: 2019/06/04 16:14:31 by ghdesfos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_putstr(char const *s)
 {
+	if (!s)
+		return ;
 	while (*s)
 	{
 		ft_putchar(*s);

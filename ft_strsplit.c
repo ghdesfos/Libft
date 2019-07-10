@@ -5,67 +5,77 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghdesfos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/23 21:11:19 by ghdesfos          #+#    #+#             */
-/*   Updated: 2018/09/24 14:53:31 by ghdesfos         ###   ########.fr       */
+/*   Created: 2019/06/03 18:44:22 by ghdesfos          #+#    #+#             */
+/*   Updated: 2019/06/08 17:16:23 by ghdesfos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_nbr_words(char const *s, char c)
+static char		*move_to_char_after_end_of_word(char *str, char c)
 {
-	int n;
+	while (*str && *str != c)
+		str++;
+	return (str);
+}
 
-	n = 0;
-	while (*s == c)
-		s++;
-	while (*s)
+static char		*move_to_next_word(char *str, char c)
+{
+	while (*str == c)
+		str++;
+	return (str);
+}
+
+static size_t	count_words(char *str, char c)
+{
+	size_t count;
+
+	count = 0;
+	while (*str)
 	{
-		if (*s)
-			n++;
-		while (*s && *s != c)
-			s++;
-		while (*s == c)
-			s++;
+		str = move_to_next_word(str, c);
+		if (*str != 0)
+			count++;
+		str = move_to_char_after_end_of_word(str, c);
 	}
-	return (n);
+	return (count);
 }
 
-static int	ft_word_length(char const *s, char c)
+static size_t	word_length(char *str, char c)
 {
-	int i;
+	size_t len;
 
-	i = 0;
-	while (s[i] && s[i] != c)
-		i++;
-	return (i);
+	len = 0;
+	while (str[len] && str[len] != c)
+		len++;
+	return (len);
 }
 
-char		**ft_strsplit(char const *s, char c)
+char			**ft_strsplit(char const *s, char c)
 {
 	char	**tab;
-	int		nbwords;
-	int		i;
-	int		j;
-	int		wordlen;
+	size_t	words_nb;
+	size_t	word_len;
+	size_t	i;
+	size_t	j;
 
-	nbwords = ft_nbr_words(s, c);
-	if (!(tab = (char**)malloc(sizeof(char*) * (nbwords + 1))))
+	if ((i = 0) == 0 && !s)
 		return (NULL);
-	tab[nbwords] = NULL;
-	i = 0;
-	while (i < nbwords)
+	words_nb = count_words((char*)s, c);
+	if (!(tab = (char**)malloc(sizeof(char*) * (words_nb + 1))))
+		return (NULL);
+	tab[words_nb] = NULL;
+	while (i < words_nb)
 	{
-		while (*s == c)
-			s++;
-		wordlen = ft_word_length(s, c);
-		if (!(tab[i] = (char*)malloc(sizeof(char) * (wordlen + 1))))
+		s = move_to_next_word((char*)s, c);
+		word_len = word_length((char*)s, c);
+		if (!(tab[i] = (char*)malloc(sizeof(char) * (word_len + 1))))
 			return (NULL);
-		j = 0;
-		while (j < wordlen)
-			tab[i][j++] = *s++;
-		tab[i][j] = 0;
-		i++;
+		j = -1;
+		while (++j < word_len)
+			tab[i][j] = s[j];
+		tab[i++][word_len] = 0;
+		s = move_to_char_after_end_of_word((char*)s, c);
 	}
 	return (tab);
 }

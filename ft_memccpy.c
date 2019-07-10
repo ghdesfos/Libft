@@ -5,28 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghdesfos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/22 19:51:39 by ghdesfos          #+#    #+#             */
-/*   Updated: 2018/09/25 17:28:08 by ghdesfos         ###   ########.fr       */
+/*   Created: 2019/06/03 18:34:30 by ghdesfos          #+#    #+#             */
+/*   Updated: 2019/06/06 13:10:50 by ghdesfos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *restrict dst, const void *restrict src, \
-		int c, size_t n)
+void	*ft_memccpy(void *restrict dst, const void *restrict src, int c, \
+					size_t n)
 {
-	size_t		i;
-	char		*d;
-	const char	*s;
+	char	*cdst;
+	char	*csrc;
+	size_t	i;
 
+	cdst = (char*)dst;
+	csrc = (char*)src;
 	i = 0;
-	d = dst;
-	s = src;
 	while (i < n)
 	{
-		d[i] = s[i];
-		if (s[i] == (char)c)
-			return ((void*)&d[i + 1]);
+		if (csrc[i] == (char)c)
+		{
+			cdst[i] = csrc[i];
+			return ((void*)(cdst + i + 1));
+		}
+		cdst[i] = csrc[i];
 		i++;
 	}
 	return (NULL);
